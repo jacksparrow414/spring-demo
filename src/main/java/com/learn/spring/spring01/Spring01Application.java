@@ -24,12 +24,20 @@ public class Spring01Application {
 //		System.out.println(service.getUserInfo());
 //	}
 
+	//
 	public static void main(String[] args) {
+		// 读指定位置xml文件
+		// 将xml解析为Document文件
+		// 循环解析每个节点<bean>、<import>等
+		// 获得bean的BeanDefinition,注册bean,BeanFactory中的beanDefinitionMap缓存起来，K-xml中bean节点的id，V-BeanDefinition
+
 		ApplicationContext context = new ClassPathXmlApplicationContext("schoolService.xml");
 
+		//根据key,拿到BeanDefinition
 		SchoolServiceImpl service = context.getBean("schoolService", SchoolServiceImpl.class);
 
 		System.out.println(service.getTimeStr());
+		System.out.println(service.getInStr("djk"));
 	}
 
 }
