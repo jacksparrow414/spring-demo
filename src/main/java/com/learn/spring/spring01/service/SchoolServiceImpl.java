@@ -12,4 +12,8 @@ public class SchoolServiceImpl {
     public String getTimeStr(){
       return   LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:MM:ss"));
     }
+
+    public String getInStr(String str){
+        return str;
+    }
 }
