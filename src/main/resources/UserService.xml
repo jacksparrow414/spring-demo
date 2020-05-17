@@ -4,12 +4,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--将schoolService放到userService前面实例化，这样userService在填充属性的时候直接拿缓存里面的就行-->
+    <bean id="schoolService" class="com.learn.spring.spring01.service.SchoolServiceImpl">
+    </bean>
+
    <bean id="userService" class="com.learn.spring.spring01.service.UserServiceImpl">
-     <property name="user" ref="user"/>
+       <!--set方法方式注入-->
+     <!--<property name="schoolService" ref="schoolService"/>-->
+
+       <!--构造器方式注入-->
+       <constructor-arg ref="schoolService"/>
    </bean>
 
-    <bean id="user" class="com.learn.spring.spring01.entity.User">
-        <constructor-arg index="0" value="1"/>
-        <constructor-arg index="1" value="dhb"/>
-    </bean>
 </beans>
