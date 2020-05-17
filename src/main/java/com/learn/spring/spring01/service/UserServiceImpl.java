@@ -1,24 +1,24 @@
 package com.learn.spring.spring01.service;
 
-import com.learn.spring.spring01.entity.User;
-
 /**
  * @author duhongbo
  * @date 2020/5/16 9:30
  */
 public class UserServiceImpl {
+    private SchoolServiceImpl schoolService;
 
-    private User user;
-
-    public String getUserInfo(){
-        return user.toString();
+    // 使用构造器
+    public UserServiceImpl(SchoolServiceImpl schoolService) {
+       this.schoolService = schoolService;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public String getSchoolServiceMethod(){
+        return schoolService.getTimeStr();
     }
 
-    public User getUser() {
-        return user;
-    }
+    // set 方法注入时，需要提供set方法
+//    public void setSchoolService(SchoolServiceImpl schoolService) {
+//        this.schoolService = schoolService;
+//    }
+
 }
