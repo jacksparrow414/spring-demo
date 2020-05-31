@@ -1,0 +1,41 @@
+{
+  "groups": [
+    {
+    "name": "jack.sparrow",
+    "type": "com.learn.spring.spring01.config.CustomConfigurationProperties",
+    "sourceType": "com.learn.spring.spring01.config.CustomConfigurationProperties"
+  }
+  ],
+  "properties": [
+    {
+     "name": "jack.sparrow.enabled",
+      "type": "java.lang.Boolean",
+      "defaultValue": true,
+      "description": "是否是配置文件生效"
+    },
+    {
+    "name": "jack.sparrow.code",
+    "type": "java.lang.Integer",
+    "sourceType": "com.learn.spring.spring01.config.CustomConfigurationProperties",
+    "description": "这是property的类的code",
+    "defaultValue": 1
+    },
+    {
+      "name": "jack.sparrow.name",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "jack.sparrow.check",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.learn.spring.spring01.config.CustomConfigurationProperties",
+      "description": "这是check",
+      "defaultValue": true
+    },
+    {
+      "name": "jack.sparrow.name.nameMap",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "com.learn.spring.spring01.config.CustomConfigurationComplexProperties",
+      "description": "这是map"
+    }
+  ]
+}

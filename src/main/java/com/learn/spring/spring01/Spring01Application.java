@@ -1,10 +1,14 @@
 package com.learn.spring.spring01;
 
+import com.learn.spring.spring01.config.CustomConfigurationComplexProperties;
+import com.learn.spring.spring01.config.CustomConfigurationProperties;
 import com.learn.spring.spring01.service.SchoolServiceImpl;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+@EnableConfigurationProperties({CustomConfigurationProperties.class, CustomConfigurationComplexProperties.class})
 @SpringBootApplication
 public class Spring01Application {
 
@@ -42,6 +46,10 @@ public class Spring01Application {
 	// 扫描注解
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("schoolService.xml");
+		// 如果开启了注解扫描，但是还是报schoolService 找不到，
+		// 要看看SchoolServiceImpl配置了了名字没有
+		// @Component 和@Service 默认当前bean的名字是类名的驼峰写法,即-schoolServiceImpl
+		// 但是这里的名字是自定义的，所以，要在上面两个注解上配置value
 		SchoolServiceImpl schoolService = context.getBean("schoolService", SchoolServiceImpl.class);
 		System.out.println(schoolService.getTimeStr());
 	}
