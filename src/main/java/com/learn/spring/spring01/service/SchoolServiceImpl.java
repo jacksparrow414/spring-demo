@@ -6,10 +6,12 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
+ * @Service 注解默认的bean的名字为schoolServiceImpl,即当前类名的驼峰写法
  * @author duhongbo
  * @date 2020/5/16 10:04
  */
 @Component
+//@Service
 public class SchoolServiceImpl {
 
     public String getTimeStr(){
