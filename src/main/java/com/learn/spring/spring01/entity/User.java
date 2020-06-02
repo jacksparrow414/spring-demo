@@ -1,40 +1,24 @@
 package com.learn.spring.spring01.entity;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
+ * EqualsAndHashCode 注解是重写equals和hashCode方法，of代表的是对哪些属性进行重写
  * @author duhongbo
  * @date 2020/5/16 9:29
  */
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode(of = {"id","name"})
 public class User {
 
     private Integer id;
     private String name;
 
-    public Integer getId() {
-        return id;
-    }
+    private Integer age;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public User(Integer id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
 }
