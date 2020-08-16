@@ -6,21 +6,42 @@ jobs: # a collection of steps
 
     docker: # run the steps with Docker
       - image: circleci/openjdk:8-jdk-stretch 
+      
     steps: # a collection of executable commands
+    
     # check out source code to working directory
       - checkout 
+      
       - restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           key: spring-{{ checksum "pom.xml" }}
       # gets the project dependencies
-      - run: mvn dependency:go-offline 
+      - run: 
+          name: get dependency
+          command: mvn dependency:go-offline 
       
       - save_cache: # saves the project dependencies
           paths:
             - ~/.m2
           key: spring-{{ checksum "pom.xml" }}
       # run the actual t
-      - run: mvn package 
+      - run:
+          name: sign start
+          command: echo "building start"
+      # 执行构建 
+      - run: 
+          name: build project
+          command: mvn package 
+      - run:
+          name: build success
+          command: echo "build success"
+          when: on_success
+          
+      - run:
+          name: build fail
+          command: echo "build fail"
+          when: on_fail
+      # 存储测试结果
       - store_test_results: # uploads the test metadata from the `target/surefire-reports` directory so that it can show up in the CircleCI dashboard. 
         # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
             path: target/surefire-reports
@@ -34,7 +55,13 @@ workflows:
   commit-workflow:
     jobs:
       - build
-  nightly:
+  forked-commit-workflow:
+    jobs:
+      - build:
+        filters:
+          branches:
+            only: /^[A-Za-z0-9].*/
+  scheduled-workflow:
     triggers:
       - schedule:
            cron: "0 0 * * *"
