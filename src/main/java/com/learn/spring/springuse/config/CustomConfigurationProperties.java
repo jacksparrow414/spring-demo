@@ -1,4 +1,4 @@
-package com.learn.spring.spring01.config;
+package com.learn.spring.springuse.config;
 
 import lombok.Getter;
 import lombok.Setter;

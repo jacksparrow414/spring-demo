@@ -1,4 +1,4 @@
-package com.learn.spring.spring01.entity;
+package com.learn.spring.springuse.basic.entity;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

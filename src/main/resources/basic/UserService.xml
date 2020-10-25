@@ -5,10 +5,10 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--将schoolService放到userService前面实例化，这样userService在填充属性的时候直接拿缓存里面的就行-->
-    <bean id="schoolService" class="com.learn.spring.spring01.service.SchoolServiceImpl">
+    <bean id="schoolService" class="com.learn.spring.springuse.basic.service.SchoolServiceImpl">
     </bean>
 
-   <bean id="userService" class="com.learn.spring.spring01.service.UserServiceImpl">
+   <bean id="userService" class="com.learn.spring.springuse.basic.service.UserServiceImpl">
        <!--set方法方式注入-->
      <!--<property name="schoolService" ref="schoolService"/>-->
 

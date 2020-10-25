@@ -1,6 +1,6 @@
 package com.learn.spring.spring01.common;
 
-import com.learn.spring.spring01.entity.User;
+import com.learn.spring.springuse.basic.entity.User;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**

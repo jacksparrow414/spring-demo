@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--被依赖的类-->
+    <bean id="injectionedContructorService" class="com.learn.spring.springuse.basic.service.constructor.DependencyInjectiondContructorService"/>
+
+    <!--在DependencyInjectionWithConstructorService注入依赖的类的对象-->
+    <bean id="dependencyInjectionWithConstructorService" class="com.learn.spring.springuse.basic.service.constructor.DependencyInjectionWithConstructorService">
+        <!--ref是此xml文件中依赖的<bean id="xxx" class="xxx"> 标签中的id.通过ref的bean，可以找到依赖的类，从而创建依赖类的对象-->
+        <constructor-arg ref="injectionedContructorService"/>
+    </bean>
+</beans>
