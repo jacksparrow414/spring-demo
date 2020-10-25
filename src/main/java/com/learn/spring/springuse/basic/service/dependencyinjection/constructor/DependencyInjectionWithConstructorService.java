@@ -1,4 +1,4 @@
-package com.learn.spring.springuse.basic.service.constructor;
+package com.learn.spring.springuse.basic.service.dependencyinjection.constructor;
 
 /**
  * 通过构造方法注入依赖的属性
