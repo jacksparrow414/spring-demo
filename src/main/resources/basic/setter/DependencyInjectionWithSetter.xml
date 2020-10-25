@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--被依赖的类-->
+    <bean id="injectionedService" class="com.learn.spring.springuse.basic.service.setter.DependencyInjectionedService"/>
+
+   <!--在DependencyInjectionWithSetService注入依赖的类的对象-->
+    <bean id="dependencyInjectionWithSetService" class="com.learn.spring.springuse.basic.service.setter.DependencyInjectionWithSetService">
+
+        <!--name的值是具体setXXX方法(这里是setInjectionService)去掉set方法，驼峰的写法-->
+        <!--ref是此xml文件中依赖的<bean id="xxx" class="xxx"> 标签中的id.通过ref的bean，可以找到依赖的类，从而创建依赖类的对象-->
+        <property name="injectionService" ref="injectionedService"/>
+
+        <!--问：不配置依赖的bean可以吗？
+            答：不可以，因为spring创建bean是通过解析xml文件进而生成的.
+            如果不配置，那么在创建对象，初始化属性时，得到的是null，这样里面的依赖属性完全不能用，就没什么意义了.
+            具体细节可阅读loadBeanDefinitions方法源码
+        -->
+    </bean>
+</beans>

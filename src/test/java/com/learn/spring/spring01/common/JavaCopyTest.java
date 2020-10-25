@@ -1,12 +1,11 @@
 package com.learn.spring.spring01.common;
 
-import com.learn.spring.spring01.entity.User;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
+import com.learn.spring.springuse.basic.entity.User;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 /**
  *

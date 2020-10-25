@@ -1,9 +1,8 @@
-package com.learn.spring.spring01.service;
-
-import org.springframework.stereotype.Component;
+package com.learn.spring.springuse.basic.service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import org.springframework.stereotype.Component;
 
 /**
  * @Service 注解默认的bean的名字为schoolServiceImpl,即当前类名的驼峰写法

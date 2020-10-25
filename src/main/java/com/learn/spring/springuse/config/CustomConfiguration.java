@@ -1,13 +1,12 @@
-package com.learn.spring.spring01.config;
+package com.learn.spring.springuse.config;
 
+import java.util.Map;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.StandardEnvironment;
-
-import java.util.Map;
 
 /**
  * 有时间可以研究下@Conditional注解，参考代码，是ShardingSphere-Springboot-stater下的SpringBootConfiguration
