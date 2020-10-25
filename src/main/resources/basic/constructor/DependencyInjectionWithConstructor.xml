@@ -8,7 +8,9 @@
 
     <!--在DependencyInjectionWithConstructorService注入依赖的类的对象-->
     <bean id="dependencyInjectionWithConstructorService" class="com.learn.spring.springuse.basic.service.constructor.DependencyInjectionWithConstructorService">
-        <!--ref是此xml文件中依赖的<bean id="xxx" class="xxx"> 标签中的id.通过ref的bean，可以找到依赖的类，从而创建依赖类的对象-->
+        <!--ref是此xml文件中依赖的<bean id="xxx" class="xxx"> 标签中的id.
+        通过ref的bean，可以找到依赖的类，从而创建依赖类的对象.也可以说是构造方法中涉及到的参数的类的配置的id
+        -->
         <constructor-arg ref="injectionedContructorService"/>
     </bean>
 </beans>
