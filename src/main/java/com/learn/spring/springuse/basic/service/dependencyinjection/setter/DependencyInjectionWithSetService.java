@@ -1,4 +1,4 @@
-package com.learn.spring.springuse.basic.service.setter;
+package com.learn.spring.springuse.basic.service.dependencyinjection.setter;
 
 /**
  * 使用set方法进行依赖注入

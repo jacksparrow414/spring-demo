@@ -5,10 +5,10 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--被依赖的类-->
-    <bean id="injectionedService" class="com.learn.spring.springuse.basic.service.setter.DependencyInjectionedService"/>
+    <bean id="injectionedService" class="com.learn.spring.springuse.basic.service.dependencyinjection.setter.DependencyInjectionedService"/>
 
    <!--在DependencyInjectionWithSetService注入依赖的类的对象-->
-    <bean id="dependencyInjectionWithSetService" class="com.learn.spring.springuse.basic.service.setter.DependencyInjectionWithSetService">
+    <bean id="dependencyInjectionWithSetService" class="com.learn.spring.springuse.basic.service.dependencyinjection.setter.DependencyInjectionWithSetService">
 
         <!--name的值是具体setXXX方法(这里是setInjectionService)去掉set方法，驼峰的写法-->
         <!--ref是此xml文件中依赖的<bean id="xxx" class="xxx"> 标签中的id.通过ref的bean，可以找到依赖的类，从而创建依赖类的对象-->

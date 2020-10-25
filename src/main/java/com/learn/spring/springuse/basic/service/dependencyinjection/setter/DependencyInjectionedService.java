@@ -1,9 +1,9 @@
-package com.learn.spring.springuse.basic.service.setter;
+package com.learn.spring.springuse.basic.service.dependencyinjection.setter;
 
 /**
  * 被依赖的类
  *
- * @see com.learn.spring.springuse.basic.service.setter.DependencyInjectionWithSetService
+ * @see DependencyInjectionWithSetService
  * @author jacksparrow414
  * @date 2020/10/25
  */

@@ -1,4 +1,4 @@
-package com.learn.spring.springuse.basic.service.constructor;
+package com.learn.spring.springuse.basic.service.dependencyinjection.constructor;
 
 /**
  * 被依赖的类

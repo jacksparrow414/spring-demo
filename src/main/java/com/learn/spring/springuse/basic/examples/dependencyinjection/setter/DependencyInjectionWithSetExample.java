@@ -1,6 +1,6 @@
-package com.learn.spring.springuse.basic.examples.setter;
+package com.learn.spring.springuse.basic.examples.dependencyinjection.setter;
 
-import com.learn.spring.springuse.basic.service.setter.DependencyInjectionWithSetService;
+import com.learn.spring.springuse.basic.service.dependencyinjection.setter.DependencyInjectionWithSetService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,7 +14,7 @@ public class DependencyInjectionWithSetExample {
     
     public static void main(String[] args) {
         //1、加载xml文件
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("basic/setter/DependencyInjectionWithSetter.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("basic/dependencyinjection/setter/DependencyInjectionWithSetter.xml");
         //2、获得DependencyInjectionWithSetService类的实例，其中名字就是xml中配置的<bean id="">的名字
         // 如果配置错误，会抛出NoSuchBeanDefinitionException: No bean named 'XXX' available异常。也就是没找到
         DependencyInjectionWithSetService dependencyInjectionWithSetService = applicationContext.getBean("dependencyInjectionWithSetService", DependencyInjectionWithSetService.class);

@@ -1,6 +1,6 @@
-package com.learn.spring.springuse.basic.examples.constructor;
+package com.learn.spring.springuse.basic.examples.dependencyinjection.constructor;
 
-import com.learn.spring.springuse.basic.service.constructor.DependencyInjectionWithConstructorService;
+import com.learn.spring.springuse.basic.service.dependencyinjection.constructor.DependencyInjectionWithConstructorService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,7 +14,7 @@ public class DependencyInjectionWithConstructorExample {
     
     public static void main(String[] args) {
         //1、加载xml文件
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("basic/constructor/DependencyInjectionWithConstructor.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("basic/dependencyinjection/constructor/DependencyInjectionWithConstructor.xml");
         //2、获得DependencyInjectionWithConstructorService类的实例
         DependencyInjectionWithConstructorService dependencyInjectionWithConstructorService =
             applicationContext.getBean("dependencyInjectionWithConstructorService", DependencyInjectionWithConstructorService.class);
