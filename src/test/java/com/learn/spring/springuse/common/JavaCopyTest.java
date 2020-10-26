@@ -1,11 +1,11 @@
-package com.learn.spring.spring01.common;
+package com.learn.spring.springuse.common;
 
 import com.learn.spring.springuse.basic.entity.User;
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 /**
  *
@@ -13,8 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author duhongbo
  * @date 2020/6/19 17:14
  */
-@SpringBootTest
-public class JavaCopyTest {
+public final class JavaCopyTest {
 
     /**
      * 对于Java的8种基本类型及其包装类(int、byte、short、long、float、char、double、boolean)
@@ -26,7 +25,7 @@ public class JavaCopyTest {
      * 注：String类型通过常量赋值时相当于基本数据类型，通过new关键字创建对象时便是引用数据类型
      * <a href = "https://www.cnblogs.com/genggeng/p/10065885.html"/>
      */
-    @Test
+    @org.junit.Test
    public void testBasicTypeCopy(){
         int basicInt1 = 78;
         int basicInt2 = basicInt1;
