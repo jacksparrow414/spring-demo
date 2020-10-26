@@ -1,15 +1,14 @@
-package com.learn.spring.spring01.common;
+package com.learn.spring.springuse.common;
 
 import com.learn.spring.springuse.basic.entity.User;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.Test;
 
 /**
  * @author jacksparrow414
  * @date 2020-06-02
  * @description: TODO
  */
-@SpringBootTest
-public class UserEqualTest {
+public final class UserEqualTest {
 
     /**
      * 判断同一个 类 的 两个 对象 是不是相等，分几种情况
@@ -35,9 +34,10 @@ public class UserEqualTest {
      * 前提是，设置的属性，是在equals、hashCode中的属性
      *
      * 例如：下面的age是没有在equals方法和hashCode中的，所以，即使age不同，最后判断两个对象也是相同的
-     * @param args
+     *
      */
-    public static void main(String[] args) {
+    @Test
+    public void assertEqual() {
 
         User userOne = new User();
         userOne.setAge(12);
