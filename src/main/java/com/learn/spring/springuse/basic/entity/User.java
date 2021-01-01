@@ -1,5 +1,6 @@
 package com.learn.spring.springuse.basic.entity;
 
+import java.io.Serializable;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +15,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @EqualsAndHashCode(of = {"id","name"})
-public class User {
+public class User implements Serializable {
 
     private Integer id;
     private String name;
