@@ -1,11 +1,15 @@
 package com.learn.spring.springuse.common;
 
 import com.learn.spring.springuse.basic.entity.User;
-import org.junit.jupiter.api.Test;
-
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import lombok.SneakyThrows;
+import org.junit.Test;
 
 /**
  *
@@ -87,24 +91,26 @@ public final class JavaCopyTest {
      * 由此引出Java中浅拷贝和深拷贝
      * 对于引用类型：默认都是浅拷贝，【即两个不同的对象的引用是相同的，都是指向内存中同一块内存空间】
      * 对于类
+     * <pre>
      * class A {
      *
      *     private List<E> list;
      *     // B是另外一个类
      *     private B b;
      * }
-     *
+     *</pre>
      * 那么此时类A的对象A1、A2所拿到的list和b是同样的
      *
      * 对于实际业务中，如何实现对象的深拷贝【序列化的方式】、
      * 数组/集合的深拷贝【只有新建，并且把集合中每个元素放到另外一个集合中去，这样才是深拷贝，其他方式都是浅拷贝】
      *
+     * 一个对象的深拷贝可以通过序列化实现{@link JavaCopyTest#testObjectDeepCopy()}
      *
      * 关于深拷贝、浅拷贝可参考
      * <a href = "https://segmentfault.com/a/1190000018646675?utm_source=tag-newest#item-5"/>
      *
      * */
-    @Test
+    @org.junit.Test
     public void testObjectCopy(){
         User user1 = new User();
         user1.setId(1);
@@ -117,5 +123,25 @@ public final class JavaCopyTest {
         user2.setAge(111);
         System.out.println(user1.getName());
         System.out.println(user1.getAge());
+    }
+    
+    /**
+     * 使用序列化的形式进行深拷贝.深拷贝的对象必须实现Serializable接口
+     */
+    @org.junit.Test
+    @SneakyThrows
+    public void testObjectDeepCopy() {
+        User source = new User();
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        ObjectInputStream objectInputStream = null;
+        ObjectOutputStream objectOutputStream = null;
+        objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+        objectOutputStream.writeObject(source);
+        objectOutputStream.flush();
+        objectInputStream = new ObjectInputStream(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
+        User target = (User) objectInputStream.readObject();
+        byteArrayOutputStream.close();
+        objectOutputStream.close();
+        objectInputStream.close();
     }
 }
