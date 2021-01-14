@@ -1,6 +1,8 @@
 package com.learn.spring.springuse.common;
 
 import com.learn.spring.springuse.basic.entity.User;
+import lombok.SneakyThrows;
+import org.junit.Test;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
@@ -14,7 +16,7 @@ import org.junit.Test;
 /**
  *
  * Java中浅拷贝、深拷贝
- * @author duhongbo
+ * @author jacksparrow414
  * @date 2020/6/19 17:14
  */
 public final class JavaCopyTest {
