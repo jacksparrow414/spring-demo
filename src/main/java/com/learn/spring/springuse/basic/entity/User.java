@@ -1,5 +1,6 @@
 package com.learn.spring.springuse.basic.entity;
 
+import java.io.Serializable;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
