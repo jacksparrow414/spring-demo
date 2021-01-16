@@ -1,7 +1,12 @@
 package com.learn.spring.springuse.common;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Multimap;
 import com.learn.spring.springuse.basic.entity.User;
 import org.junit.Test;
+
+import java.util.List;
 
 /**
  * @author jacksparrow414
@@ -48,5 +53,26 @@ public final class UserEqualTest {
       //  userTwo.setName("ok");
         userTwo.setAge(13);
         System.out.println(userOne.equals(userTwo));
+    }
+
+    /**
+     * 关于guava新集合类型使用示例见<a href="https://github.com/google/guava/wiki/CollectionUtilitiesExplained#multimaps">官方文档</a>
+     */
+    @Test
+    public void assertObjectEqual() {
+        User first = new User();
+        first.setId(1);
+        first.setName("ok");
+        User second = new User();
+        second.setId(1);
+        second.setName("ok");
+        // 普通list是不具有过滤重复元素的性质的
+        List<User> list = Lists.newArrayList(first, second);
+        System.out.println(list.size());
+        // 对于两个相同的对象， HashMultimap只会有一个
+        Multimap<Integer, User> multimap = HashMultimap.create();
+        multimap.put(1, first);
+        multimap.put(1, second);
+        System.out.println(multimap.values().size());
     }
 }
