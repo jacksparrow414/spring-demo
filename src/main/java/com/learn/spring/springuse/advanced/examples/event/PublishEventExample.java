@@ -1,4 +1,4 @@
-package com.learn.spring.springuse.advanced.examples;
+package com.learn.spring.springuse.advanced.examples.event;
 
 import com.learn.spring.springuse.advanced.event.CustomEventConfiguration;
 import com.learn.spring.springuse.advanced.event.CustomPublisher;
