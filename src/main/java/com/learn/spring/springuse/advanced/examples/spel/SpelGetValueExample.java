@@ -4,13 +4,12 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.learn.spring.springuse.advanced.spel.SpelAnotherEntity;
 import com.learn.spring.springuse.advanced.spel.SpelEntity;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.expression.ExpressionParser;
-import org.springframework.expression.spel.standard.SpelExpressionParser;
-
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.expression.ExpressionParser;
+import org.springframework.expression.spel.standard.SpelExpressionParser;
 
 /**
  * Spel表达式使用示例.
@@ -66,5 +65,23 @@ public class SpelGetValueExample {
         Map<String, SpelAnotherEntity> objectMap1 = parser.parseExpression("objectMap").getValue(spelEntity, Map.class);
         // 获取对象map中的value为对象时，访问具体属性，依旧通过【.属性】访问
         log.info("访问对象Map集合的属性{}", parser.parseExpression("objectMap['objectKey'].date").getValue(spelEntity));
+        
+        // 访问集合属性时元素不存在或者index过大应该怎么防止报错？使用三目运算，假设我要访问第4个元素，判断list的size是否小于4，如果小于4则返回null
+        log.info("访问集合时判断是否超过集合值为{}", parser.parseExpression("list.size() < 4 ? null:list[3]").getValue(spelEntity));
+        
+        // 当访问对象为空时，访问具体属性，会报NPE，为了防止直接抛出NPE，
+        // 则可以先判断是否为null，具体格式为【对象?.属性】如下面的示例，这是会返回null，而不是抛异常
+        // 文档https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions-operator-safe-navigation
+        
+        //log.info("获取map中不存在的对象的属性会报NPE(Null Pointer Exception)异常{}", parser.parseExpression("objectMap['objectKeys'].date").getValue(spelEntity));
+        log.info("获取map中不存在的对象的属性防止NPE(Null Pointer Exception)异常{}", parser.parseExpression("objectMap['objectKeys']?.date").getValue(spelEntity));
+       
+        // 调用具体方法时直接通过【.方法名】调用即可
+        log.info("调用toUpperCase方法值为{}", parser.parseExpression("list[0].toUpperCase()").getValue(spelEntity));
+        
+        // 调用静态方法时，如某些工具类的某些静态方法，则通过 T(类的完全限定名.方法()) 这种方式调用
+        // 如下面的调用Spring的StringUtils方法，类的完全限定名是类的完整名字
+        // <a href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions-types">官方文档</a>
+        log.info("调用静态方法的方法值为{}", parser.parseExpression("T(org.springframework.util.StringUtils).capitalize(list[1])").getValue(spelEntity));
     }
 }
