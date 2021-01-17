@@ -1,11 +1,16 @@
 package com.learn.spring.springuse.advanced.spel;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
 import java.util.Map;
-
 /**
  * SpelEntity.
  */
@@ -13,9 +18,9 @@ import java.util.Map;
 @Setter
 public class SpelEntity {
 
-    private Integer age;
+    private Integer age = new Integer(2021);
 
-    private String name;
+    private String name = "jacksparrow";
 
     private Boolean child;
 
@@ -28,4 +33,11 @@ public class SpelEntity {
     private List<SpelAnotherEntity> objectList;
 
     private Map<String, SpelAnotherEntity> objectMap;
+    
+    /**
+     * 实例方法.
+     */
+    public Date myDate() {
+        return Calendar.getInstance().getTime();
+    }
 }
