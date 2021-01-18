@@ -11,10 +11,12 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 /**
- * Spel表达式使用示例.
+ * Spel表达式从Java 对象中获取其属性值使用示例.
  * <a href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions">Sprl官方文档</a>
  *
  * 重点阅读4.1到4.1.1之间的部分和4.3这一部分
+ *
+ * <a href="https://cloud.tencent.com/developer/article/1676200">基础教程</a>
  */
 @Slf4j
 public class SpelGetValueExample {
@@ -27,7 +29,7 @@ public class SpelGetValueExample {
         spelEntity.setChild(Boolean.FALSE);
 
         // 集合属性
-        List<String> list = Lists.newArrayList("china", "usa");
+        List<String> list = Lists.newArrayList("china", "usa", "china");
         spelEntity.setList(list);
         Map<Integer, Integer> map = Maps.newHashMap();
         map.put(1, 100);
@@ -82,5 +84,25 @@ public class SpelGetValueExample {
         // 如下面的调用Spring的StringUtils方法，类的完全限定名是类的完整名字
         // <a href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions-types">官方文档</a>
         log.info("调用静态方法的方法值为{}", parser.parseExpression("T(org.springframework.util.StringUtils).capitalize(list[1])").getValue(spelEntity));
+
+        // 按照过滤条件找出集合中符合条件的元素,过滤之后返回的是集合，如果在list中过滤，则返回list，在map中过滤，返回map
+        // 使用格式     ?.[条件]
+        // 这里使用#this，文档地址 - https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions-this-root
+        List<String> filterList = (List<String>) parser.parseExpression("list.?[#this =='china']").getValue(spelEntity);
+        log.info("list集合过滤后的值为{}", filterList.get(0));
+
+        // 对于map集合过滤，条件可以是key、value，因为map.entrySet()是key和vale
+        // <a href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions-collection-selection"/>
+        Map<Integer, Integer> filterKeyMap = (Map<Integer, Integer>) parser.parseExpression("map.?[key == 1]").getValue(spelEntity);
+        Map<Integer, Integer> filterValueMap = (Map<Integer, Integer>) parser.parseExpression("map.?[value == 100]").getValue(spelEntity);
+        log.info("map集合Key过滤后的值为{}", filterKeyMap);
+        log.info("map集合Value过滤后的值为{}", filterValueMap);
+
+        // 对于集合过滤之后会返回满足条件的所有元素，如何返回第一个、最后一个匹配的元素
+        // 返回第一个 .^[条件]
+        // 返回最后一个 .$[条件]
+        log.info("获取list中匹配的第一个值{}", parser.parseExpression("list.^[#this == 'china']").getValue(spelEntity));
+        log.info("获取list中匹配的第一个值{}", parser.parseExpression("list.$[#this == 'china']").getValue(spelEntity));
+
     }
 }
