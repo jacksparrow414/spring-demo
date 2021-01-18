@@ -18,7 +18,7 @@ public class CustomAnnotationListener {
 
     /**
      *
-     * 使用注解时，还可以使用condition条件来选择有条件接收，condition使用的是SPEL表达式
+     * 使用注解时，还可以使用condition条件来选择有条件接收，condition使用的是SPEL表达式.customEvent是当前spel解析context中的属性
      * <a href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions">Spel官方文档</a>
      */
     @EventListener(condition = "#customEvent.name.equals('jack')")
