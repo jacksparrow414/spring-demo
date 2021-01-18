@@ -7,7 +7,6 @@ import com.learn.spring.springuse.advanced.spel.SpelEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
-
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
@@ -104,5 +103,6 @@ public class SpelGetValueExample {
         // 返回最后一个 .$[条件]
         log.info("获取list中匹配的第一个值{}", parser.parseExpression("list.^[#this == 'china']").getValue(spelEntity));
         log.info("获取list中匹配的第一个值{}", parser.parseExpression("list.$[#this == 'china']").getValue(spelEntity));
+
     }
 }
