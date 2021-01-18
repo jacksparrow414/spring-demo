@@ -8,7 +8,10 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 /**
@@ -16,6 +19,7 @@ import java.util.Map;
  */
 @Getter
 @Setter
+@ToString
 public class SpelEntity {
 
     private Integer age = new Integer(2021);
