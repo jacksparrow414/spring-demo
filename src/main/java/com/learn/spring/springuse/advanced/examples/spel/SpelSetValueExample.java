@@ -5,8 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 
-import java.util.Map;
 
+import java.util.Map;
 /**
  * spel表达式给Java对象属性设值使用示例.
  * @author jacksparrow414
@@ -24,8 +24,6 @@ public class SpelSetValueExample {
         // 集合属性设置值
         parser.parseExpression("list").setValue(spelEntity, "first,second");
         Map<Integer, Integer> value = (Map<Integer, Integer>) parser.parseExpression("{1:188}").getValue(spelEntity);
-
-
         log.info("SpelEntity设值之后的值{}", spelEntity);
     }
 }

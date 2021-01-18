@@ -109,6 +109,5 @@ public class SpelGetValueExample {
 
         // 调用一个类的构造方法
         SpelAnotherEntity value1 = parser.parseExpression("new com.learn.spring.springuse.advanced.spel.SpelAnotherEntity()").getValue(spelEntity, SpelAnotherEntity.class);
-
     }
 }
