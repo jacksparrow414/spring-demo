@@ -7,6 +7,7 @@ import com.learn.spring.springuse.advanced.spel.SpelEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
+
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +18,8 @@ import java.util.Map;
  * 重点阅读4.1到4.1.1之间的部分和4.3这一部分
  *
  * <a href="https://cloud.tencent.com/developer/article/1676200">基础教程</a>
+ *
+ * 对于#this和#具体属性这两者，一般spel会有一个context，#属性，就是获取在这个context中属性为#后面的属性，#this spel解析过程中当前解析位置的对象
  */
 @Slf4j
 public class SpelGetValueExample {
@@ -87,7 +90,7 @@ public class SpelGetValueExample {
 
         // 按照过滤条件找出集合中符合条件的元素,过滤之后返回的是集合，如果在list中过滤，则返回list，在map中过滤，返回map
         // 使用格式     ?.[条件]
-        // 这里使用#this，文档地址 - https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions-this-root
+        // 这里使用#this，表示当前对象，文档地址 - https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions-this-root
         List<String> filterList = (List<String>) parser.parseExpression("list.?[#this =='china']").getValue(spelEntity);
         log.info("list集合过滤后的值为{}", filterList.get(0));
 
@@ -103,6 +106,9 @@ public class SpelGetValueExample {
         // 返回最后一个 .$[条件]
         log.info("获取list中匹配的第一个值{}", parser.parseExpression("list.^[#this == 'china']").getValue(spelEntity));
         log.info("获取list中匹配的第一个值{}", parser.parseExpression("list.$[#this == 'china']").getValue(spelEntity));
+
+        // 调用一个类的构造方法
+        SpelAnotherEntity value1 = parser.parseExpression("new com.learn.spring.springuse.advanced.spel.SpelAnotherEntity()").getValue(spelEntity, SpelAnotherEntity.class);
 
     }
 }

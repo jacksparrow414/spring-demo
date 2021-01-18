@@ -1,10 +1,11 @@
 package com.learn.spring.springuse.advanced.spel;
 
-import java.util.Date;
-import javax.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import java.util.Date;
 
 /**
  * 在spring容器中使用Spel表达式，通过类引用获得其对应的属性或者调用对应的方法.
@@ -32,6 +33,12 @@ public class SpelContentEntity {
     
     @Value("#{@spelEntity.myDate()}")
     private Date contentDate;
+
+    /**
+     * 当@Value取值为属性文件时，如果属性值不存在，可以给一个默认值,属性:不存在时的默认值
+     */
+    @Value("${jack.sparrow.name:noexist}")
+    private String name;
     
     /**
      * 通过三目运算符判断.
