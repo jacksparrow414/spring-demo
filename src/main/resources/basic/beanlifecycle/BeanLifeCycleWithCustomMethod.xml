@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--对于自定义的bean初始化执行的方法和销毁之前的方法可以在 xml中的bean标签中指定具体的属性 -->
+<!--文档地址如下-->
+<!--https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-factory-lifecycle-initializingbean-->
+    <bean id="beanLifeCycleWithCustomMethod"
+          class="com.learn.spring.springuse.basic.service.beanlifecycle.BeanLifeCycleWithCustomMethod"
+          init-method="init"
+          destroy-method="destroy">
+    </bean>
+</beans>
