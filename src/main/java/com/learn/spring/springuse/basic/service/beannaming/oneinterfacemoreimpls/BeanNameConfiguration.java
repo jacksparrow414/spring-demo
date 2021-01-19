@@ -2,6 +2,7 @@ package com.learn.spring.springuse.basic.service.beannaming.oneinterfacemoreimpl
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 /**
  * 【配置说明】
@@ -55,5 +56,15 @@ public class BeanNameConfiguration {
     @Bean(name = "Second")
     public BeanNameService secondBean() {
         return new SecondBeanNameServiceImpl();
+    }
+
+    /**
+     * 自定义bean的名字为Third
+     * @return ThirdBeanNameServiceImpl
+     */
+    @Bean(name = "Third")
+    @Primary
+    public BeanNameService thirdBean() {
+        return new ThirdBeanNameServiceImpl();
     }
 }
