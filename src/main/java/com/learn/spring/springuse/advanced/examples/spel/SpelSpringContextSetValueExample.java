@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
- * @author duhongbo
+ * @author jacksparrow414
  * @date 2021/1/18 14:38
  */
 public class SpelSpringContextSetValueExample {
