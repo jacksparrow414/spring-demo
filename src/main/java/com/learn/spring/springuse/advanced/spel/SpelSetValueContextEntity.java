@@ -13,7 +13,7 @@ import java.util.Map;
  * 对于集合的初始化,使用{}表示，如果是map{:}表示空map,<a href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions-inline-lists">文档地址</a>
  *
  * 直接使用@Value注解，在里面直接写spel表达式即可，关于@Value相关可参考{@link SpelContentEntity}相关注释
- * @author duhongbo
+ * @author jacksparrow414
  * @date 2021/1/18 14:32
  */
 @Slf4j

@@ -2,3 +2,6 @@ jack:
   sparrow:
     check: false
     code: 3
+dhb:
+  customStr: one
+
