@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * <a href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-factory-lifecycle-initializingbean">整体文档</a>
  *
  * 关于bean的生命周期控制见{@link BeanLifeCycleWithPostAnnotationExample}
- * @author duhongbo
+ * @author jacksparrow414
  * @date 2021/1/19 15:16
  */
 @Slf4j
@@ -25,11 +25,11 @@ public class BeanLifeCycleWithInterface implements InitializingBean, DisposableB
 
     @Override
     public void destroy() throws Exception {
-        log.info("bean被销毁之前要做的操作");
+        log.info("DisposableBean接口的destroy方法执行的是bean被销毁之前要做的操作");
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        log.info("bean初始化之后要做的操作");
+        log.info("InitializingBean接口的afterPropertiesSet方法执行的是bean初始化之后要做的操作");
     }
 }

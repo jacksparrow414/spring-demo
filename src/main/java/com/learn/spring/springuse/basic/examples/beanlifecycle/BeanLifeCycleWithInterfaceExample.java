@@ -4,7 +4,7 @@ import com.learn.spring.springuse.basic.service.beanlifecycle.BeanLifeCycleWithI
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
- * @author duhongbo
+ * @author jacksparrow414
  * @date 2021/1/19 15:27
  */
 public class BeanLifeCycleWithInterfaceExample {
