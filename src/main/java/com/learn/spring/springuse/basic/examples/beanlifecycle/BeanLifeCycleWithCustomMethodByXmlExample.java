@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * 在xml中使用自定义的init-method、destroy-method的示例
  *
  * 更详细解释见{@link BeanLifeCycleWithPostAnnotationExample}
- * @author duhongbo
+ * @author jacksparrow414
  * @date 2021/1/19 15:50
  */
 public class BeanLifeCycleWithCustomMethodByXmlExample {

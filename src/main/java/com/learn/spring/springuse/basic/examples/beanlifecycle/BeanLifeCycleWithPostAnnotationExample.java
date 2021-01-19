@@ -23,7 +23,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * 使用示例{@link BeanLifeCycleWithCustomMethod} xml的使用示例见{@link BeanLifeCycleWithCustomMethodByXmlExample}
  *
  * <a href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-factory-nature">整体文档</a>
- * @author duhongbo
+ * @author jacksparrow414
  * @date 2021/1/19 15:07
  */
 public class BeanLifeCycleWithPostAnnotationExample {

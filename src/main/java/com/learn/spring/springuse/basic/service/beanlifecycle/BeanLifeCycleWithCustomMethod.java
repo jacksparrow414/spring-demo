@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
  * <a href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-factory-lifecycle-initializingbean">官方文档</a>
  *
  * 在配置类{@link BeanLifeCycleWithCustomMethodConfiguration}中通过@Bean注解的init-method和destroy-method方法指定方法名字
- * @author duhongbo
+ * @author jacksparrow414
  * @date 2021/1/19 15:34
  */
 @Slf4j
