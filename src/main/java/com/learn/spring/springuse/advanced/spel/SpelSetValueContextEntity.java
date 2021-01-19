@@ -40,6 +40,18 @@ public class SpelSetValueContextEntity {
     private SpelEntity spelEntity;
 
     /**
+     * 直接设值.
+     */
+    @Value("#{1}")
+    private Integer code;
+
+    @Value("#{'initString'}")
+    private String initStr;
+
+    @Value("#{true}")
+    private Boolean initBool;
+
+    /**
      * 调用静态方法.
      */
     @Value("#{ T(com.google.common.collect.Lists).newArrayList() }")
@@ -56,5 +68,8 @@ public class SpelSetValueContextEntity {
         log.info("初始化的spelEntity为{}", spelEntity);
         log.info("初始化guava的list大小为{}", initListByGuava.size());
         log.info("获取属性文件中不存在的属性默认值为{}", name);
+        log.info("获取code属性值为{}", code);
+        log.info("获取initStr属性值为{}", initStr);
+        log.info("获取initBool属性值为{}", initBool);
     }
 }
