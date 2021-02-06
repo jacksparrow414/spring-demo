@@ -1,11 +1,5 @@
 package com.learn.spring.springuse.advanced.spel;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

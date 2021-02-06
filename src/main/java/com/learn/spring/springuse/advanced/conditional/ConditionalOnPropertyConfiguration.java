@@ -19,6 +19,7 @@ public class ConditionalOnPropertyConfiguration {
      * havingValue是要匹配属性名的属性值
      * matchIfMissing当不匹配时是否继续使当前注解标注的方法生效
      *
+     * 在test单元测试中测试是否生效，使用方法见{@link com.learn.spring.springuse.SpringApplicationTests}
      * @return com.learn.spring.springuse.advanced.conditional.ConditionalOnBeanComponent
      */
     @Bean
