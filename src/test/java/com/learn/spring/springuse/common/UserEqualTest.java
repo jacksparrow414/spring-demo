@@ -43,7 +43,7 @@ public final class UserEqualTest {
      */
     @Test
     public void assertEqual() {
-
+        
         User userOne = new User();
         userOne.setAge(12);
       //  userOne.setId(1);

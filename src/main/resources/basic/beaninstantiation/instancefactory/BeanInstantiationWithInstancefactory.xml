@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    实例化bean的工厂类-->
+    <bean id="beanInstantiationWithInstanceFactory" class="com.learn.spring.springuse.basic.service.beaninstantiation.instancefactory.BeanInstantiationWithInstanceFactory">
+
+    </bean>
+<!--依赖实例工厂没有class属性, id为实例工厂类里的属性名-->
+    <bean id="instanceBean"
+          factory-bean="beanInstantiationWithInstanceFactory"
+          factory-method="getInstanceBean">
+    </bean>
+</beans>
